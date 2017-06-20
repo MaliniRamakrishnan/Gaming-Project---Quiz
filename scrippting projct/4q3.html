@@ -1,0 +1,62 @@
+<html>
+<head>
+<style type="text/css">
+@-moz-keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* Firefox */
+@-webkit-keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* Webkit */
+@-ms-keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* IE */
+@keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* Opera and prob css3 final iteration */
+img {
+border:1px solid #000;
+-moz-transition:all 1s ease-in-out;
+-webkit-transition:all 1s ease-in-out;
+-o-transition:all 1s ease-in-out;
+-ms-transition:all 1s ease-in-out;
+transition:all 1s ease-in-out;
+/* order: name, direction, duration, iteration-count, timing-function */   
+-moz-animation:blink normal 2s infinite ease-in-out; /* Firefox */
+-webkit-animation:blink normal 2s infinite ease-in-out; /* Webkit */
+-ms-animation:blink normal 2s infinite ease-in-out; /* IE */
+animation:blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+}​
+div{
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+	}
+.rcorners6 {}
+box { }
+.rcorners6 box{
+    background-color: yellow;
+    border-radius: 15px 50px;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+}
+</style>
+</head>
+<body bgcolor="black" text="white">
+<center>YOUR TURN STARTS !!</center>
+<br>PLAYER 1 <br><br><br>
+QUESTION NO:3<br><br><br><br><br>
+<form action="4q4.html">
+<table height="25%" width="80%">
+<tr>
+<td><center>
+<img src="quest.jpeg"width="350"height="350">
+</center></td>
+<td><center><h1>
+<div><box class="rcorners6">
+For how much time, as you remember, have you been friends?
+<br><br>
+<input type="radio" name="answer">Not sure.<br>
+<input type="radio" name="answer">Some days/months.<br>
+<input type="radio" name="answer">Since time immemorable.
+</box></div>
+</h1></center></td>
+<td><p align="right"><input type="image" src="nextbutton.png"></p></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

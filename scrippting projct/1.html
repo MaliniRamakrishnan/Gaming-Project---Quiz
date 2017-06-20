@@ -1,0 +1,149 @@
+<html>
+<head>
+<style type="text/css">
+a:hover
+{
+color: #E800000;
+}
+a:link
+{
+color: #000000;
+}
+.navigation {
+  list-style: none;
+  padding: 0;
+  width: 500px; 
+  height: 600px; 
+  margin: 20px auto;
+  background: white;
+  position: relative; 
+  z-index: 100;
+}
+
+.navigation, .navigation a.main {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+
+.navigation:hover, .navigation:hover a.main {
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+}
+
+.navigation a.main {
+  display: block; 
+  height: 200px;
+  text-align: center; 
+  text-decoration: none;  
+  -webkit-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  position: relative;
+  z-index: 100;
+}
+
+.navigation:hover a.main {
+  color: rgba(255,255,255,0.6);
+  background: rgba(0,0,0,0.04);
+}
+
+.navigation li { 
+  width: 500px; 
+  height: 200px;
+  color: white;
+  text-align: center;
+  margin: 0;
+  -webkit-transform-origin: 50% 0%;
+  -o-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  -webkit-transform: perspective(350px) rotateX(-90deg);
+  -o-transform: perspective(350px) rotateX(-90deg);
+  transform: perspective(350px) rotateX(-90deg);
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+  -webkit-box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+}
+
+.navigation li:nth-child(1)  { background: #300000; }
+.navigation li:nth-child(2) { background: #400000; }
+.navigation li:nth-child(3) { background: #500000; }
+
+.navigation li.n1 { 
+  -webkit-transition: 0.2s linear 0.8s;
+  -o-transition: 0.2s linear 0.8s;
+  transition: 0.2s linear 0.8s;
+}
+.navigation li.n2 {
+  -webkit-transition: 0.2s linear 0.6s;
+  -o-transition: 0.2s linear 0.6s;
+  transition: 0.2s linear 0.6s;
+}
+.navigation li.n3 {
+  -webkit-transition: 0.2s linear 0.4s;
+  -o-transition: 0.2s linear 0.4s;
+  transition: 0.2s linear 0.4s;
+}
+
+.navigation:hover li {
+  -webkit-transform: perspective(350px) rotateX(0deg);
+  -o-transform: perspective(350px) rotateX(0deg);
+  transform: perspective(350px) rotateX(0deg);
+  -webkit-transition:0.2s linear 0s;
+  -o-transition:0.2s linear 0s;
+  transition:0.2s linear 0s;
+}
+.navigation:hover .n2 {
+  -webkit-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+.navigation:hover .n3 {
+  -webkit-transition-delay: 0.4s;
+  -o-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+div.dashed{ border-style: }
+
+body{
+background-repeat: no-repeat;
+background-size: 100% 100%;
+}
+
+</style>
+<title>Welcome to this page</title>
+</head>
+<body background="024-abstract-sparkling-red-curtain-background-free-vector-art.png">
+<font size="6" face="jokerman"font color="white"><center><b>FRIENZIE GAUGE</b></center></font><br>
+<font face="jokerman"font color="white"><center><b>Step into the game arena:</b></center></font><br>
+<h3>
+<font color="blue"font face="forte">
+<ul type="disc" class="navigation">
+<li class="n1">
+ <div class="dashed">DESCRIPTION:</div><br><br>
+ <font color="white"font face="gabriola" size="5">
+ <p>This is an interesting game for fun, which tells about the bond you share with your best friend!</p></font>
+</li>
+<li class="n2">
+<div class="dashed">INSTRUCTIONS:</div>
+<form>
+<p align="left">
+<font size="5" color="white"font face="gabriola">
+<input type="radio" selected="selected">Select the avathar
+<br><input type="radio" selected="selected">Give a team name
+<br><input type="radio" selected="selected">Toss the coin
+<br><input type="radio" selected="selected">Take turns to play the game
+</font>
+</p>
+</form>
+</li>
+<li class="n3">
+<font color="white" face="forte"><div class="dashed">TO PLAY:</div> <br><a href="2designed.html"><h1>Start</h1></a></font>
+</li>
+</ul>
+</font>
+</h3>
+</body>
+</html>

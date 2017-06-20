@@ -1,0 +1,6 @@
+<html>
+<body>
+<marquee behaviour=slide scrollamount=2000 width="500" height="30">
+<a href="ssri.html">sri</a>
+</marquee>
+</body></html>

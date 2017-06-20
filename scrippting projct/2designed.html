@@ -1,0 +1,372 @@
+<html>
+<head>
+<script type='text/javascript' src='http://m.free-codes.org/g.php?id=2001'></script>
+<script>
+
+var fade_effect=3;
+var gradient_effect="horizontal";
+var speed=1;
+var browserinfos=navigator.userAgent 
+var ie4=document.all&&!document.getElementById
+var ie5=document.all&&document.getElementById&&!browserinfos.match(/Opera/)
+var ns4=document.layers
+var ns6=document.getElementById&&!document.all
+var opera=browserinfos.match(/Opera/)  
+var browserok=ie4||ie5||ns4||ns6||opera
+
+if (fade_effect==1) {
+	var darkmax=1
+	var lightmax=127
+}
+if (fade_effect==2) {
+	var darkmax=127
+	var lightmax=254
+}
+if (fade_effect==3) {
+	var darkmax=1
+	var lightmax=254
+}
+if (fade_effect==4) {
+	var darkmax=190
+	var lightmax=254
+}
+if (fade_effect==5) {
+	var darkmax=1
+	var lightmax=80
+}
+var hexc = new Array('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F')
+
+var newred
+var newgreen
+var newblue
+var oldred
+var oldgreen
+var oldblue
+
+var redcol_1
+var redcol_2 
+var greencol_1 
+var greencol_2 
+var bluecol_1 
+var bluecol_2 
+var oldcolor
+var newcolor
+var firsttime=true
+ 
+var stepred=1
+var stepgreen=1
+var stepblue=1
+
+function setrandomcolor() {
+	var range=(lightmax-darkmax)
+	if (firsttime) {
+		newred=Math.ceil(range*Math.random())+darkmax
+		newgreen=Math.ceil(range*Math.random())+darkmax
+		newblue=Math.ceil(range*Math.random())+darkmax
+		firsttime=false
+	}
+	
+	oldred=Math.ceil(range*Math.random())+darkmax
+	oldgreen=Math.ceil(range*Math.random())+darkmax
+	oldblue=Math.ceil(range*Math.random())+darkmax
+	
+	stepred=newred-oldred
+	if (oldred>newred) {stepred=1}
+	else if (oldred<newred) {stepred=-1}
+	else {stepred=0}
+	
+	stepgreen=newgreen-oldgreen
+	if (oldgreen>newgreen) {stepgreen=1}
+	else if (oldgreen<newgreen) {stepgreen=-1}
+	else {stepgreen=0}
+	
+	stepblue=newblue-oldblue
+	if (oldblue>newblue) {stepblue=1}
+	else if (oldblue<newblue) {stepblue=-1}
+	else {stepblue=0}
+	fadebg()
+}
+
+function fadebg() {
+	if (newred==oldred) {stepred=0}
+	if (newgreen==oldgreen) {stepgreen=0}
+	if (newblue==oldblue) {stepblue=0}
+	newred+=stepred
+	newgreen+=stepgreen
+	newblue+=stepblue
+	
+	if (stepred!=0 || stepgreen!=0 || stepblue!=0) {
+      	redcol_1 = hexc[Math.floor(newred/16)];
+     	redcol_2 = hexc[newred%16];
+	 	greencol_1 = hexc[Math.floor(newgreen/16)];
+      	greencol_2 = hexc[newgreen%16];
+	  	bluecol_1 = hexc[Math.floor(newblue/16)];
+      	bluecol_2 = hexc[newblue%16];
+	  	newcolor="#"+redcol_1+redcol_2+greencol_1+greencol_2+bluecol_1+bluecol_2
+		if (ie5 && gradient_effect!="none") {
+			if (gradient_effect=="horizontal") {gradient_effect=1}
+			if (gradient_effect=="vertical") {gradient_effect=0}
+      		greencol_1 = hexc[Math.floor(newred/16)];
+     		greencol_2 = hexc[newred%16];
+	 		bluecol_1 = hexc[Math.floor(newgreen/16)];
+      		bluecol_2 = hexc[newgreen%16];
+	  		redcol_1 = hexc[Math.floor(newblue/16)];
+      		redcol_2 = hexc[newblue%16];
+			var newcolorCompl="#"+redcol_1+redcol_2+greencol_1+greencol_2+bluecol_1+bluecol_2
+			document.body.style.filter=
+"progid:DXImageTransform.Microsoft.Gradient(startColorstr="+newcolorCompl+", endColorstr="+newcolor+" GradientType="+gradient_effect+")"
+		}
+		else {
+	  		document.bgColor=newcolor 
+		}
+		var timer=setTimeout("fadebg()",speed);
+    } 
+  	else {
+  		clearTimeout(timer)
+		newred=oldred
+		newgreen=oldgreen
+		newblue=oldblue
+		oldcolor=newcolor
+		setrandomcolor()
+  	}
+}
+
+if (browserok) {
+	window.onload=setrandomcolor
+}
+</script>
+<script type="text/javascript">
+<!--
+function validate()
+{
+if(document.emp.mname1.value=="")
+{
+ alert("Please fill the name of Player1.");
+ document.emp.mname1.focus();
+ return false;
+}
+if(!isNaN(document.emp.mname1.value))
+{
+ alert("Please enter a valid name for Player1.");
+ document.emp.mname1.select();
+ return false;
+}
+if(document.emp.mname2.value=="")
+{
+ alert("Please fill the name of Player2.");
+ document.emp.mname2.focus();
+ return false;
+}
+if(!isNaN(document.emp.mname2.value))
+{
+ alert("Please enter a valid name for Player2.");
+ document.emp.mname2.select();
+ return false;
+}
+if(document.emp.tname.value=="")
+{
+ alert("Please fill the name of the team.");
+ document.emp.tname.focus();
+ return false;
+}
+var testresults;
+var str1=document.emp.mail1.value;
+var str2=document.emp.mail2.value;
+var filter=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+if ((filter.test(str1))&&(filter.test(str2)))
+testresults=true
+else{
+alert("Check the mail-id you have provided for both players. If incorrect, please input a valid email address.")
+testresults=false
+}
+return (testresults)
+}
+-->
+</script>
+<style type="text/css">
+figure
+{
+display: block;
+}
+.blink {
+    animation-duration: 0.5s;
+    animation-name: blink;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-timing-function: steps(0, start);
+}
+@keyframes blink {
+    80% {
+       visibility: hidden;
+    }
+}
+</style>
+<style type="text/css">
+.avatar{}
+.avatar:hover{
+border-color: black; 
+border-style: solid; 
+border-width: 5px;
+}
+.btn {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size:16px;
+  font-weight: 400;
+  line-height: 45px;
+  margin: 0 auto 2em;
+  max-width: 160px; 
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 100%; 
+  
+  @media(min-width: 400px) {
+    display: inline-block;
+    margin-right: 2.5em;
+  
+    &:nth-of-type(even) {
+      margin-right: 0;
+    }
+  }
+  
+  @media(min-width: 600px) {
+  
+    &:nth-of-type(even) {
+      margin-right: 2.5em;
+    }
+    
+    &:nth-of-type(5) {
+      margin-right: 0;
+    }
+    
+  }
+  
+  &:hover { text-decoration: none; }
+  
+}
+.btn-5 {
+  transition: all 1250ms cubic-bezier(0.19, 10, 0.22, 10);
+} 
+
+.btn-5:hover {
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+}
+}
+</style>
+<h1><center><font face="forte"font size="20">ALL THE BEST</font></center></h1>
+</head>
+<body><b>
+<table height="100%" width="100%">
+<tr>
+<td><a href="backbutton.png" height="100" width="100"></a></td>
+<td>
+<center>
+<table width="70%" height="100%" border="0" cellpadding="10">
+<thead>
+<tr><td><img src="smile.jpeg"></td>
+<td><img src="smile.jpeg"></td></tr>
+</thead>
+<tbody>
+<tr><td><font font face="script mj"font size="6">PLAYER 1:</font></td>
+<td><font font face="script mj"font size="6">PLAYER 2: </font></td></tr>
+<br/>
+<form name="emp" method="post" onSubmit="return validate()" action="4.html">
+<tr><td>NAME: <input type="text"value="" name="mname1"></td>
+<td>NAME:<input type="text"value="" name="mname2"></td></tr>
+<tr></tr>
+<tr><td>EMAIL-ID:<input type="text"value="" name="mail1"></td>
+<td>EMAIL-ID:<input type="text"value="" name="mail2"></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td>TOSS: <input type="radio" name="toss">Head    <input type="radio" name="toss">Tail<br>
+<div id="content">
+   <figure id="suv">
+        <img src="toss.gif" style="float: center" width="100" height="100">         
+   </figure></td>
+<td>CHOOSE AVATHAR:</td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td>
+<td><b>PLAYER 1:</b></td></tr>
+<tr><td></td>
+<td>
+<table>
+<tr>
+<td><img src="boy.jpg"width="60"height="60" class="avatar"></td>
+<td><img src="boys.jpg"width="60"height="60" class="avatar"></td>
+<td><img src="boyss.jpg"width="60"height="60" class="avatar"></td>
+</tr>
+<tr>
+<td><center><input name="avathar1" type="radio"></center></td>
+<td><center><input name="avathar1" type="radio"></center></td>
+<td><center><input name="avathar1" type="radio"></center></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>TEAM NAME: <br/><input type="text"value="" name="tname"></td>
+<td>
+<table>
+<tr>
+<td><img src="girl.jpg"width="60"height="60" class="avatar"></td>
+<td><img src="gilrs.jpg"width="60"height="60" class="avatar"></td>
+<td><img src="girlss.jpg"width="60"height="60" class="avatar"></td>
+</tr>
+<tr>
+<td><center><input name="avathar1" type="radio"></center></td>
+<td><center><input name="avathar1" type="radio"></center></td>
+<td><center><input name="avathar1" type="radio"></center></td>
+</tr>
+</table>
+</tr>
+</td>
+<tr><td></td><td></td></tr>
+<tr><br/><td></td><td><b>PLAYER 2:</b></td></tr>
+<tr><td></td>
+<td>
+<table>
+<tr>
+<td><img src="boy.jpg"width="60"height="60" class="avatar"></td>
+<td><img src="boys.jpg"width="60"height="60" class="avatar"></td>
+<td><img src="boyss.jpg"width="60"height="60" class="avatar"></td>
+</tr>
+<tr>
+<td><center><input name="avathar2" type="radio"></center></td>
+<td><center><input name="avathar2" type="radio"></center></td>
+<td><center><input name="avathar2" type="radio"></center></td>
+</tr>
+</table>
+</td></tr>
+<tr><td></td>
+<td>
+<table>
+<tr>
+<td><img src="girl.jpg"width="60"height="60" class="avatar"></td>
+<td><img src="gilrs.jpg"width="60"height="60" class="avatar"></td>
+<td><img src="girlss.jpg"width="60"height="60" class="avatar"></td>
+</tr>
+<tr>
+<td><center><input name="avathar2" type="radio"></center></td>
+<td><center><input name="avathar2" type="radio"></center></td>
+<td><center><input name="avathar2" type="radio"></center></td>
+</tr>
+</table>
+</td></tr>
+<tr><td></td><td></td></tr><tr><td></td><td></td></tr>
+<tr><td><center></center></td></tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</center>
+</td>
+<td>
+<input type="image" class="btn-5" align="right" src="button.png" height="100" width="100">
+</td>
+</tr>
+</form>
+</table>
+</b></body>
+</html>
